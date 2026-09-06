@@ -16,7 +16,7 @@ The platform brings together **inventory management, transactional order process
 
 ## Dashboard Preview
 
-![Dashboard Preview](screenshot.png)
+![Preview](screenshot.png)
 
 ---
 
