@@ -1020,31 +1020,14 @@ Important workflows should be validated before deployment.
 
 ---
 
-# 📸 Screenshots & Demo
+---
 
-Add application screenshots here to make the repository easier to understand at a glance.
+## Dashboard Preview
 
-Recommended screenshots:
+![Preview](dashboard_1.png)
+![Preview](dashboard_2.png)
 
-
-```
-01-dashboard.png
-02-analytics.png
-03-inventory.png
-04-place-order-multi.png
-05-invoice.png
-06-database-admin.png
-07-dark-mode.png
-08-urdu-interface.png
-```
-
-
-Example:
-
-
-```
-![Main Dashboard](docs/screenshots/01-dashboard.png)
-```
+---
 
 
 A short GIF or demo video showing the complete **Place Order → Inventory Update → Invoice → Dashboard Refresh** workflow would make the project even stronger.
