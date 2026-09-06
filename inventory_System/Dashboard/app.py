@@ -1265,15 +1265,19 @@ async def render_add_form(state: AppState, table_name: str, columns_info: List[D
         inputs['quantity'] = ui.number("Initial Quantity", value=0).props('outlined dense').classes('w-full')
         inputs['stock_price'] = ui.number("Stock Price", value=0.0, format='%.2f').props('outlined dense').classes('w-full')
 
-    # Fetch categories for any table that has a category_id column
+    # Fetch categories for any table that has a category_id column (but not for categories table)
     categories = []
-    if any(col['column_name'] == 'category_id' for col in columns_info):
+    if any(col['column_name'] == 'category_id' for col in columns_info) and table_name != 'categories':
         categories = await AdminQueries.get_categories()
 
     with ui.column().classes('w-full gap-2 p-4').style(f'border: 1px solid {colors["border"]}; border-radius: 8px;'):
         for col in columns_info:
             col_name = col['column_name']
+            # Skip system-managed columns
             if col_name in ['product_id', 'inventory_id', 'supplier_id', 'order_id', 'item_id', 'created_at', 'updated_at', 'audit_id', 'transaction_id']:
+                continue
+            # Skip category_id when adding a new category (it's auto-generated)
+            if col_name == 'category_id' and table_name == 'categories':
                 continue
             if col_name in inputs:
                 continue
